@@ -1,3 +1,4 @@
+// We need to make a class so we can easily
 class ListNode<T> {
     value: T;
     next: ListNode<T> | null;
@@ -25,8 +26,13 @@ export default class SinglyLinkedList<T> {
     getTail(): T | null {
         return this.tail ? this.tail?.value : null;
     }
+
+    // Add/replace to first node of the list
     prepend(item: T): void {
+        // defined new node
         const newNode = new ListNode(item);
+
+        // if there is no head, it means also no tail, then assign both to new node
         if (!this.head) {
             this.head = newNode;
             this.tail = newNode;
